@@ -1,0 +1,418 @@
+@import url("//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700");
+@import url("//fonts.googleapis.com/css?family=Roboto+Mono:400,500");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Google Sans", Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+  transition: 0.2s;
+}
+
+:root {
+  --textClr: #2b2b2b;
+  --lightClr: #e1e7ff;
+  --bodyBg: #ffffff;
+  --moredark: #f2f2ff;
+  --ulBgclor: #eaeeff;
+  --important: #0091ff;
+}
+
+body {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  color: var(--textClr);
+  background-color: var(--bodyBg);
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+header .wr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(25px, 4vw, 30px);
+
+}
+
+header .wr i {
+  font-size: 30px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 15vh;
+  width: 100%;
+  background-color: var(--lightClr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .wrapper {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  border-radius: 5px;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+footer .wrapper input[type="text"] {
+  padding: 14px 10px;
+  width: 80%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  border-radius: 25px;
+  border-right: none;
+  transition: 0.1s ease;
+  background-color: var(--bodyBg);
+  color: var(--textClr);
+}
+
+footer .wrapper input[type="text"]:focus {
+  border: 2px solid var(--important);
+}
+
+footer .wrapper #addTaskBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--important);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-weight: 500;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+footer .wrapper #addTaskBtn.enable {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.todos {
+  width: 90%;
+  margin: 15px auto;
+  max-width: 800px;
+}
+
+.todos i {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.todos i:hover {
+  background-color: var(--primaryLight);
+}
+
+.todos ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 25px 0;
+  background-color: var(--lightClr);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.todos #tasktext {
+  outline: none;
+}
+
+.todos ul h2 {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 7px;
+  color: var(--important);
+}
+
+.todos ul h2 i {
+  color: currentColor;
+}
+
+.editForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editForm input {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-weight: 500;
+  width: 100%;
+  color: var(--textClr);
+}
+
+.editForm button {
+  border: none;
+  background-color: transparent;
+  color: currentColor;
+}
+
+.editForm button i {
+  font-weight: bold;
+}
+
+.editing {
+  border: 2px solid var(--important);
+}
+
+.todos li {
+  list-style: none;
+  background-color: transparent;
+  color: var(--textClr);
+  display: grid;
+  grid-template-columns: 50px auto 80px;
+  align-items: center;
+  align-content: center;
+  padding: 12px 0;
+  border-radius: 10px;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.todos li .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todos li .right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* color: var(--textClr) */
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.todos .custome_checkbox {
+  display: flex;
+}
+
+.custome_checkbox label {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #7d7b7b;
+  cursor: pointer;
+  border-radius: 50%;
+  position: relative;
+}
+
+.starbox {
+  display: flex;
+  padding-left: 10px;
+}
+
+.starbox label {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: relative;
+  font-size: 25px;
+}
+
+.starbox label::before {
+  font-family: "Material Icons";
+  content: "\e83a";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--important);
+}
+
+.starbox input[type="checkbox"]:checked+.starbox label {
+  content: "\e838";
+  border: none;
+  animation: task-completed 0.6s linear;
+}
+
+.custome_checkbox input[type="checkbox"]:checked+label {
+  background-color: #00c079;
+  border: none;
+  animation: task-completed 0.6s linear;
+}
+
+.custome_checkbox label:before {
+  font-family: "Material Icons";
+  content: "\e876";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--textClr);
+}
+
+.custome_checkbox [type="checkbox"]:checked+label:after {
+  font-family: "Material Icons";
+  content: "\e876";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.starbox [type="checkbox"]:checked+label:after {
+  font-family: "Material Icons";
+  content: "\e838";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--important);
+
+  /* animation: rotate .2s linear; */
+}
+
+.todos li .dropdown {
+  position: absolute;
+  right: 20px;
+  top: 90%;
+  background-color: var(--moredark);
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 3px black;
+  padding: 4px;
+  transform: translateY(10px);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), width 0.3s;
+}
+
+.todos li .dropdown.show {
+  transform: translateY(0);
+  z-index: 2;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.todos li .dropdown div:last-child p,
+.todos li .dropdown div:last-child i {
+  color: #ff2a26;
+}
+
+.todos li .dropdown div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#empty {
+  text-align: center;
+  display: none;
+  margin: 10px 0;
+}
+
+.todos li .dropdown div:hover {
+  background-color: var(--bodyBg);
+}
+
+.todos li .dropdown div:last-child:hover {
+  background-color: #ffd7d7;
+  color: red;
+}
+
+.todos li .dropdown div i {
+  font-size: 20px;
+}
+
+.todos li span.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todos li span {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  /* color: var(--textClr); */
+}
+
+@keyframes task-completed {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--bodyBg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--lightClr);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    --textClr: #f1f1ff;
+    --lightClr: #222327;
+    --bodyBg: #000000;
+    --moredark: #131314;
+    --important: #2fa5ff;
+  }
+}

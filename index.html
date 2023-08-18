@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="initial-scale=1,minimum-scale=1,width=device-width,interactive-widget=resizes-content">
+  <meta name="description" content="A todo web app made by ranjan">
+  <meta name="keywords" content="todo app, ranjan todo, web development">
+  <meta name="author" content="Ranjan Kashyap">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Todo app">
+  <meta property="og:description" content="A todo  website developed by Ranjan">
+  <meta property="og:url" content="https://todo.ranjankashyap1.repl.co">
+  <meta property="og:type" content="website">
+  <link rel="image_src" href="https://i.ibb.co/zF3dR1M/icon-8.png">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/zF3dR1M/icon-8.png">
+
+  <title>Todo</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="wr">
+      <i class="material-icons">task_alt</i>
+      <h2>Todo</h2>
+    </div>
+    <div id="root"></div>
+  </header>
+  <main class="todos">
+    <ul style="display: none;" class="ul2">
+      <h2>
+        <i class="material-icons">star</i>
+        Important
+      </h2>
+    </ul>
+    <ul class="ul">
+      <h2>
+        <i class="material-icons">task_alt</i>
+
+        Task
+      </h2>
+      <h4 id="empty">No items </h4>
+
+
+    </ul>
+  </main>
+  <footer>
+    <form id="form" action="#" class="wrapper">
+      <input required autocomplete="off" id="inputTask" type="text" />
+      <button id="addTaskBtn" type="submit">
+        <i class="material-icons">add</i>
+      </button>
+    </form>
+  </footer>
+  <script src="https://cdn.ranjankashyap1.repl.co/profile.js"></script>
+  <script>
+    new profile("#root");
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>
