@@ -46,7 +46,7 @@ To run the application locally:
 
 ## Credits
 
-This project was created by [Your Name] as a simple task manager application using HTML, CSS, and JavaScript.
+This project was created by Ranjan Kashyap as a simple task manager application using HTML, CSS, and JavaScript.
 
 ## License
 
